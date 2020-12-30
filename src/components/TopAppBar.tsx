@@ -6,6 +6,7 @@ import {
   makeStyles,
   Theme,
   Toolbar,
+  Tooltip,
   Typography,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -51,9 +52,11 @@ const TopAppBar: FC<Props> = ({ onThemeToggle, themeToggled }) => {
         <Typography variant="h6" className={classes.title}>
           Beer Review
         </Typography>
-        <IconButton color="inherit" onClick={onThemeToggle}>
-          <DarkModeToggleIcon toggled={themeToggled} />
-        </IconButton>
+        <Tooltip title={`Switch to ${themeToggled ? "light" : "dark"} mode`}>
+          <IconButton color="inherit" onClick={onThemeToggle}>
+            <DarkModeToggleIcon toggled={themeToggled} />
+          </IconButton>
+        </Tooltip>
         <Button color="inherit" className={classes.loginButton}>
           Login
         </Button>
